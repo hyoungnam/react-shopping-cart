@@ -1,20 +1,30 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { setupStore } from './store'
 import App from './App'
-import reportWebVitals from './reportWebVitals'
+import ProductListPage from 'pages/ProductListPage'
+import Counter from 'features/counter/Counter'
 import Layout from './components/Layout'
+import reportWebVitals from './reportWebVitals'
 import './reset.css'
+
+const store = setupStore()
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<App />}></Route>
-        </Routes>
-      </Layout>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<ProductListPage />}></Route>
+            <Route path="/counter" element={<Counter />}></Route>
+            <Route path="/app" element={<App />}></Route>
+          </Routes>
+        </Layout>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 )
