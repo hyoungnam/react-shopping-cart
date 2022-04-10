@@ -3,7 +3,7 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
-  padding: 50px 240px;
+  padding: 50px 240px 30px;
 }
 
 .product-info {
@@ -44,4 +44,25 @@
   background: #73675c;
   font-size: 24px;
   color: white;
+}
+
+.product-pagesize__container {
+  padding: 0 240px;
+  margin-bottom: 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.product-pagesize__button {
+  padding: 12px 20px;
+  border: 1px solid #fff;
+  border-radius: 8px;
+}
+
+.product-pagesize__button:hover {
+  cursor: pointer;
+}
+
+.product-pagesize__active {
+  border: 1px solid #2ac1bc;
 }
