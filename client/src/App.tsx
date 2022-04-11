@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 import ProductListPage from './pages/ProductListPage'
 import ProductOrderListPage from './pages/ProductOrderListPage'
 import CartPage from './pages/CartPage'
@@ -14,11 +14,17 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
           <Nav>
-            <Routes>
-              <Route path="/" element={<ProductListPage />}></Route>
-              <Route path="/cart" element={<CartPage />}></Route>
-              <Route path="/product-order-list" element={<ProductOrderListPage />}></Route>
-            </Routes>
+            <Switch>
+              <Route path="/">
+                <ProductListPage />
+              </Route>
+              <Route path="/cart">
+                <CartPage />
+              </Route>
+              <Route path="/cart">
+                <ProductOrderListPage />
+              </Route>
+            </Switch>
           </Nav>
         </BrowserRouter>
       </QueryClientProvider>
