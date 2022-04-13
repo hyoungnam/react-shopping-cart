@@ -2,7 +2,7 @@ import { useHistory } from 'react-router-dom'
 import './Nav.css'
 
 export default function Nav({ children }: { children: React.ReactNode }) {
-  let history = useHistory()
+  const history = useHistory()
   return (
     <>
       <nav className="nav flex justify-around">
