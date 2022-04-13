@@ -1,5 +1,5 @@
-import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import ProductListPage from './pages/ProductListPage'
 import ProductOrderListPage from './pages/ProductOrderListPage'
 import CartPage from './pages/CartPage'
@@ -13,19 +13,19 @@ function App() {
     <div className="App">
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
-          <Nav>
-            <Switch>
-              <Route path="/">
+          <Switch>
+            <Nav>
+              <Route exact path="/">
                 <ProductListPage />
               </Route>
-              <Route path="/cart">
+              <Route exact path="/cart">
                 <CartPage />
               </Route>
-              <Route path="/cart">
+              <Route exact path="/product-order-list">
                 <ProductOrderListPage />
               </Route>
-            </Switch>
-          </Nav>
+            </Nav>
+          </Switch>
         </BrowserRouter>
       </QueryClientProvider>
     </div>

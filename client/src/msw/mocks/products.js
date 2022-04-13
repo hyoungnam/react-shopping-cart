@@ -4,12 +4,12 @@ const handlers = [
   rest.get('/products', (req, res, ctx) => {
     const pageOffset = req.url.searchParams.get('_offset')
     const limit = req.url.searchParams.get('_limit')
-    const pageSize = Math.ceil(Products.length / limit)
+    const pageSize = Math.ceil(mockProducts.length / limit)
 
     const startIndex = pageOffset * limit - limit
     const endIndex = pageOffset * limit
 
-    const products = Products.slice(startIndex, endIndex)
+    const products = mockProducts.slice(startIndex, endIndex)
     return res(
       ctx.json({
         pageSize,
@@ -21,7 +21,7 @@ const handlers = [
 
 export default handlers
 
-const Products = [
+export const mockProducts = [
   {
     id: 1,
     name: '냉면용기(대)',

@@ -1,6 +1,7 @@
 import './CartPage.css'
 
 export default function CartPage() {
+  console.log('??')
   return (
     <section className="cart-section">
       <header className="flex-col-center mt-20">

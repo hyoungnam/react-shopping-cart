@@ -1,10 +1,8 @@
 import { useHistory } from 'react-router-dom'
-
 import './Nav.css'
 
 export default function Nav({ children }: { children: React.ReactNode }) {
-  const history = useHistory()
-
+  let history = useHistory()
   return (
     <>
       <nav className="nav flex justify-around">
@@ -14,10 +12,14 @@ export default function Nav({ children }: { children: React.ReactNode }) {
           </h1>
         </div>
         <div className="flex gap-15">
-          <button className="nav-button" onClick={() => history.push('/cart')}>
+          <button className="nav-button" type="button" onClick={() => history.push('/cart')}>
             장바구니
           </button>
-          <button className="nav-button" onClick={() => history.push('/product-order-list')}>
+          <button
+            className="nav-button"
+            type="button"
+            onClick={() => history.push('/product-order-list')}
+          >
             주문목록
           </button>
         </div>
